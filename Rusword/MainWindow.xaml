@@ -1,0 +1,46 @@
+﻿<Window x:Class="Rusword.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rusword"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+
+        <ToolBar
+            Height="30"
+            VerticalAlignment="Top">
+            
+        </ToolBar>
+
+        <ScrollViewer
+            Grid.Column="1">
+            
+            <RichTextBox
+                x:Name="RichTextBox"
+                Width="21.9cm"
+                MinHeight="20cm"
+                Background="White"
+                Grid.Column="1"
+                Margin="30"
+                Padding="25"
+                BorderBrush="Transparent"
+                BorderThickness="0">
+                
+                <RichTextBox.Effect>
+                    <DropShadowEffect
+                    Direction="0"
+                    BlurRadius="20"
+                    Opacity="0.5" 
+                    RenderingBias="Quality" ShadowDepth="2"/>
+                </RichTextBox.Effect>
+            </RichTextBox>
+        </ScrollViewer>
+    </Grid>
+</Window>
