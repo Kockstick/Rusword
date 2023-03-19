@@ -1,0 +1,126 @@
+﻿<Border x:Class="Rusword.ParagraphPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rusword"
+        mc:Ignorable="d"
+        Height="Auto" Width="800"
+        MinHeight="300"
+        Background="White"
+        HorizontalAlignment="Center"
+        CornerRadius="5">
+
+    <Border.Triggers>
+        <EventTrigger RoutedEvent="MouseEnter">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation 
+                        Storyboard.TargetProperty="(Effect).Color"
+                        To="Black"
+                        Duration="0:0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation 
+                        Storyboard.TargetProperty="(Effect).Color"
+                        To="White"
+                        Duration="0:0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Border.Triggers>
+
+    <Border.Effect>
+        <DropShadowEffect
+            Direction="0"
+            BlurRadius="10"
+            Opacity="0.3" 
+            RenderingBias="Quality" ShadowDepth="2"
+            Color="White"/>
+    </Border.Effect>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="330"/>
+            <ColumnDefinition Width="470"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBox
+                Width="70"
+                Height="40"
+                FontSize="20"
+                Background="Transparent"
+                BorderThickness="1"
+                BorderBrush="LightGray"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="20"
+                Text="25"
+                Tag="Up"
+                PreviewTextInput="TextBox_PreviewTextInput"
+                TextChanged="TextBox_TextChanged"/>
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+
+                <TextBox
+                    Width="70"
+                    Height="40"
+                    FontSize="20"
+                    Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="LightGray"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="20"
+                    Text="25"
+                    Tag="Left"
+                    PreviewTextInput="TextBox_PreviewTextInput"
+                    TextChanged="TextBox_TextChanged"/>
+
+                <Rectangle
+                    Width="100"
+                    Height="150"
+                    Fill="LightBlue"
+                    HorizontalAlignment="Center"/>
+
+                <TextBox
+                    Width="70"
+                    Height="40"
+                    FontSize="20"
+                    Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="LightGray"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="20"
+                    Text="25"
+                    Tag="Right"
+                    PreviewTextInput="TextBox_PreviewTextInput"
+                    TextChanged="TextBox_TextChanged"/>
+            </StackPanel>
+
+            <TextBox
+                Width="70"
+                Height="40"
+                FontSize="20"
+                Background="Transparent"
+                BorderThickness="1"
+                BorderBrush="LightGray"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="20"
+                Text="25"
+                Tag="Down"
+                PreviewTextInput="TextBox_PreviewTextInput"
+                TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+    </Grid>
+</Border>

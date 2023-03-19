@@ -15,14 +15,21 @@ using System.Windows.Shapes;
 
 namespace Rusword
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            ToolsRow.mainWindow = this;
+            FontPanel.mainWindow = this;
+            ParagraphPanel.mainWindow = this;
+
+            RichTextBox.FontFamily = new FontFamily("Arial");
+        }
+
+        private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

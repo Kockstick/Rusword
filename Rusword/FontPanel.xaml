@@ -1,0 +1,190 @@
+﻿<Border x:Class="Rusword.FontPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cp1="clr-namespace:ColorPickerLib.Controls;assembly=ColorPickerLib"
+        mc:Ignorable="d"
+        Height="Auto" Width="800"
+        MinHeight="210"
+        Background="White"
+        HorizontalAlignment="Center"
+        CornerRadius="5">
+
+    <Border.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ComboBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Border.Resources>
+
+    <Border.Triggers>
+        <EventTrigger RoutedEvent="MouseEnter">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation 
+                        Storyboard.TargetProperty="(Effect).Color"
+                        To="Black"
+                        Duration="0:0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation 
+                        Storyboard.TargetProperty="(Effect).Color"
+                        To="White"
+                        Duration="0:0:0:1" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Border.Triggers>
+
+    <Border.Effect>
+        <DropShadowEffect
+            Direction="0"
+            BlurRadius="10"
+            Opacity="0.3" 
+            RenderingBias="Quality" ShadowDepth="2"
+            Color="White"/>
+    </Border.Effect>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Background="Transparent">
+
+            <Label
+                Content="Font"
+                Height="40"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="15,0,0,0"/>
+
+            <ComboBox
+                Style="{StaticResource {x:Type ComboBox}}"
+                x:Name="fontComboBox"
+                Height="40"
+                Width="350"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="15" 
+                Cursor="Hand"
+                BorderBrush="WhiteSmoke"
+                BorderThickness="2"
+                SelectedIndex="0"
+                SelectionChanged="fontComboBox_SelectionChanged">
+
+                <ComboBoxItem 
+                    Content="Arial" Cursor="Hand" />
+                <ComboBoxItem 
+                    Content="Times New Roman" Cursor="Hand" />
+                <ComboBoxItem 
+                    Content="Verdana" Cursor="Hand" />
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Background="Transparent"
+            Grid.Row="1">
+
+            <Label
+                Name="LabelFontSize"
+                Content="Font size"
+                Grid.Row="1"
+                Height="40"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="15,0,0,0"/>
+
+            <TextBox
+                x:Name="FontSizeTextBox"
+                Text="-"
+                Grid.Row="1"
+                Height="40"
+                Width="80"
+                Margin="15"
+                Padding="2"
+                BorderBrush="LightGray"
+                BorderThickness="1"
+                FontSize="20"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                TextChanged="FontSizeTextBox_TextChanged"
+                PreviewTextInput="FontSizeTextBox_PreviewTextInput"/>
+
+            <Label
+                Name="LabelFontStyle"
+                Content="Style"
+                Grid.Row="1"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="20,0,0,0"/>
+
+            <ComboBox
+                Style="{StaticResource {x:Type ComboBox}}"
+                x:Name="FontStyleComboBox"
+                Height="40"
+                Width="100"
+                FontSize="20"
+                HorizontalAlignment="Left"
+                Margin="15" 
+                Cursor="Hand"
+                BorderBrush="WhiteSmoke"
+                BorderThickness="2" 
+                SelectedIndex="0"
+                SelectionChanged="FontStyleComboBox_SelectionChanged">
+
+                <ComboBoxItem 
+                    Content="Normal" Cursor="Hand" />
+                <ComboBoxItem 
+                    Content="Bold" Cursor="Hand" />
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="2"
+            Background="Transparent"
+            Orientation="Horizontal">
+
+            <Label
+                Name="LabelFontColor"
+                Content="Font color"
+                Grid.Row="1"
+                Height="40"
+                FontSize="20"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="15,0,0,0"/>
+
+            <cp1:ColorPicker 
+                x:Name="colorPicker" 
+                SelectedColor="Black"
+                Width="100"
+                Height="40"
+                SelectedColorChanged="colorPicker_SelectedColorChanged"/>
+
+        </StackPanel>
+    </Grid>
+</Border>

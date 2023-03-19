@@ -6,22 +6,41 @@
         xmlns:local="clr-namespace:Rusword"
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920"
-        WindowState="Maximized">
+        WindowState="Maximized"
+        ResizeMode="NoResize">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
 
-        <ToolBar
-            Height="30"
-            VerticalAlignment="Top">
+        <local:ToolsRow
+            x:Name="ToolsRow" 
+            Margin="20,0,20,0" 
+            VerticalAlignment="Top"/>
+
+        <StackPanel
+            Grid.Row="1">
             
-        </ToolBar>
+            <local:FontPanel
+                x:Name="FontPanel"
+                VerticalAlignment="Top"
+                Margin="0,15,0,15" 
+                HorizontalAlignment="Center" />
+
+            <local:ParagraphPanel
+                x:Name="ParagraphPanel"
+                Margin="0,15,0,15" />
+        </StackPanel>
+        
 
         <ScrollViewer
-            Grid.Column="1">
-            
+            Grid.Column="1" Grid.RowSpan="2">
+
             <RichTextBox
                 x:Name="RichTextBox"
                 Width="21.9cm"
@@ -31,8 +50,10 @@
                 Margin="30"
                 Padding="25"
                 BorderBrush="Transparent"
-                BorderThickness="0">
-                
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                TextChanged="RichTextBox_TextChanged">
+
                 <RichTextBox.Effect>
                     <DropShadowEffect
                     Direction="0"
