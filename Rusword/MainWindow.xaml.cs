@@ -24,6 +24,10 @@ namespace Rusword
             FontPanel.mainWindow = this;
             ParagraphPanel.mainWindow = this;
 
+            var parafraphs = RichTextBox.Document.Blocks.OfType<Paragraph>();
+            foreach (Paragraph paragraph in parafraphs)
+                paragraph.LineHeight = 1;
+
             RichTextBox.FontFamily = new FontFamily("Arial");
         }
 

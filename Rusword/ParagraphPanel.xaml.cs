@@ -74,5 +74,23 @@ namespace Rusword
 
             mainWindow.RichTextBox.Padding = ritchPaddings;
         }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            if (mainWindow == null)
+                return;
+
+            TextBox textBox = (TextBox)sender;
+
+            if (!Double.TryParse(textBox.Text, out double d))
+                return;
+
+            if (d <= 0)
+                return;
+
+            var parafraphs = mainWindow.RichTextBox.Document.Blocks.OfType<Paragraph>();
+            foreach (Paragraph paragraph in parafraphs)
+                paragraph.LineHeight = d;
+        }
     }
 }

@@ -87,12 +87,7 @@
                 SelectedIndex="0"
                 SelectionChanged="fontComboBox_SelectionChanged">
 
-                <ComboBoxItem 
-                    Content="Arial" Cursor="Hand" />
-                <ComboBoxItem 
-                    Content="Times New Roman" Cursor="Hand" />
-                <ComboBoxItem 
-                    Content="Verdana" Cursor="Hand" />
+                
             </ComboBox>
         </StackPanel>
 
@@ -113,21 +108,19 @@
                 VerticalAlignment="Center"
                 Margin="15,0,0,0"/>
 
-            <TextBox
-                x:Name="FontSizeTextBox"
-                Text="-"
-                Grid.Row="1"
+            <ComboBox
+                Style="{StaticResource {x:Type ComboBox}}"
+                x:Name="fontSizeComboBox"
                 Height="40"
                 Width="80"
-                Margin="15"
-                Padding="2"
-                BorderBrush="LightGray"
-                BorderThickness="1"
                 FontSize="20"
-                VerticalContentAlignment="Center"
-                HorizontalContentAlignment="Center"
-                TextChanged="FontSizeTextBox_TextChanged"
-                PreviewTextInput="FontSizeTextBox_PreviewTextInput"/>
+                HorizontalAlignment="Left"
+                Margin="15" 
+                Cursor="Hand"
+                BorderBrush="WhiteSmoke"
+                BorderThickness="2"
+                SelectedIndex="0"
+                SelectionChanged="fontSizeComboBox_SelectionChanged"/>
 
             <Label
                 Name="LabelFontStyle"

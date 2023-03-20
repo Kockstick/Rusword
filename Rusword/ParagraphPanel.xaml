@@ -85,11 +85,33 @@
                     PreviewTextInput="TextBox_PreviewTextInput"
                     TextChanged="TextBox_TextChanged"/>
 
-                <Rectangle
+                <Border
+                    Background="White"
                     Width="100"
                     Height="150"
-                    Fill="LightBlue"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center"
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    CornerRadius="5">
+
+                    <Border.Effect>
+                        <DropShadowEffect
+                            Direction="0"
+                            BlurRadius="5"
+                            Opacity="0.1" 
+                            RenderingBias="Quality" ShadowDepth="2"
+                            Color="Black"/>
+                    </Border.Effect>
+                    
+                    <Label
+                        Content="Paddings"
+                        Width="100"
+                        Height="150"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                </Border>
 
                 <TextBox
                     Width="70"
@@ -121,6 +143,39 @@
                 Tag="Down"
                 PreviewTextInput="TextBox_PreviewTextInput"
                 TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel
+            Grid.Column="1">
+
+            <StackPanel
+                Orientation="Horizontal">
+
+                <Label
+                    Content="Line height"
+                    Height="40"
+                    FontSize="20"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="15"/>
+
+                <TextBox
+                    Width="70"
+                    Height="40"
+                    FontSize="20"
+                    Background="Transparent"
+                    BorderThickness="1"
+                    BorderBrush="LightGray"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    Margin="0"
+                    Text="1"
+                    Tag="Down"
+                    PreviewTextInput="TextBox_PreviewTextInput"
+                    TextChanged="TextBox_TextChanged_1"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Border>
